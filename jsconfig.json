@@ -11,6 +11,9 @@
       "components/*": [
         "src/components/*"
       ],
+      "mockup/*": [
+        "src/mockup"
+      ],
       "layouts/*": [
         "src/layouts/*"
       ],

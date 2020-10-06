@@ -1,24 +1,25 @@
 <template>
     <q-card class="video-card" flat>
         <!-- Video -->
-        <q-video
-            class="video-card-iframe"
-            src="https://www.youtube.com/embed/k3_tw44QsZQ?rel=0"
+        <q-img
+            class="video-card-thumbnail"
+            :src="info.thumbnail"
             :ratio='4/3'
-        />
+        >
+            <q-icon size="40px" class="thumbnail-icon absolute-center" name="play_circle_outline" />
+        </q-img>
 
         <!-- Description -->
         <q-item clickable tag="a" href="#/video-details">
             <div class="video-description">
-                Get Ready Fast For Fall
-                Leaf Viewing Tripes
+                {{info.title}}
             </div>
         </q-item>
 
         <!-- Category -->
         <q-item clickable tag="a" href="#/video-details">
             <div class="video-category">
-                Travel
+                {{info.tag}}
             </div>
         </q-item>
     </q-card>
@@ -26,7 +27,8 @@
 
 <script>
 export default {
-    name: 'VideoCard'
+    name: 'VideoCard',
+    props: ['info']
 }
 </script>
 
@@ -34,14 +36,25 @@ export default {
     .video-card{
         width: calc(50% - 10px);
         margin-bottom: 20px;
+
+        .q-item {
+            padding: 0;
+        }
     }
 
-    .video-card-iframe{
+    .video-card-thumbnail{
         border-radius: 10px !important;
     }
 
+    .thumbnail-icon {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .1);
+        color: $primary;
+    }
+
     .video-description{
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 500;
         color: #757575;
         margin-top: 10px;

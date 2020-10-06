@@ -1,12 +1,11 @@
 <template>
     <q-page>
         <!-- Main Video -->
-        <MainVideo />
+        <MainVideo :info="videosList[0]" />
 
+        <!-- Video List -->
         <div class="video-list full-width row wrap justify-between items-start content-start">
-            <!-- Video List -->
-            <VideoCard />
-            <VideoCard />
+            <VideoCard :info="video" v-for="video in videosList" v-bind:key="video.tag"/>
         </div>
     </q-page>
 </template>
@@ -15,9 +14,17 @@
     import VideoCard from 'components/VideoCard'
     import MainVideo from 'components/MainVideo'
 
+    // Mockup
+    import videosList from './../../mockup/videos-list'
+
     export default {
         components: { VideoCard, MainVideo },
-        name: 'HomePanel'
+        name: 'HomePanel',
+        data () {
+            return {
+                videosList: videosList
+            }
+        }
     }
 </script>
 
