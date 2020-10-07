@@ -1,11 +1,12 @@
 <template>
   <q-page>
     <!-- Video -->
-    <q-video
+    <VideoPlayer />
+    <!-- <q-video
       class="main-video-card-iframe"
-      src="https://www.youtube.com/embed/k3_tw44QsZQ?rel=0"
+      src='./../mockup/mov_bbb.mp4'
       :ratio="4/3"
-    />
+    /> -->
 
     <!-- Description -->
     <div class="video-detail-description row vertical-middle">
@@ -34,9 +35,10 @@
 
 <script>
   import VideoCard from 'components/VideoCard'
+  import VideoPlayer from 'components/VideoPlayer'
 
   export default {
-    components: { VideoCard }
+    components: { VideoCard, VideoPlayer }
     // name: 'PageName',
   }
 </script>

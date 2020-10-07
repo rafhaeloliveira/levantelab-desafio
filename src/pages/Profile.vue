@@ -38,8 +38,7 @@
       <!-- Lista de videos -->
       <div class="video-list full-width row wrap justify-between items-start content-start">
         <!-- Video List -->
-        <VideoCard />
-        <VideoCard />
+        <VideoCard :info="video" v-for="video in videosList" v-bind:key="video.tag"/>
       </div>
     </div>
   </q-page>
@@ -47,8 +46,17 @@
 
 <script>
   import VideoCard from 'components/VideoCard'
+
+  // Mockup
+  import videosList from './../mockup/videos-list'
+
   export default {
-    components: { VideoCard }
+    components: { VideoCard },
+    data () {
+      return {
+        videosList
+      }
+    }
   }
 </script>
 
